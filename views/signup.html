@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%title%></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" HREF="images/favicon1.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        <script type="text/javascript">
+        </script>
+        <style>
+		.jumbotron {
+			background-image: url(../images/jumbotronbackground.gif);
+			background-position: 0% 25%;
+			background-size: cover;
+			
+		}
+            body {
+                padding-top: 50px;
+            }
+            .navbar-brand {
+                font-size: 1.7em;
+                padding-bottom: 5px; 
+            }
+            .navbar-inverse {
+                background-color: #4f4444;
+            }
+            .padding-bottom{
+                padding-bottom: 5px;
+            }
+            .details {
+                padding-bottom: 10px;
+            }
+            .margin {
+                margin-bottom: 11px;
+            }
+            .time {
+                color: #AF9AA5;
+            }
+			.cnt-Wrap{width:99%;  margin:0 auto; position:relative; height:50% !important; text-align:center;}
+	    </style>
+	</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <div class="padding-bottom">
+                <a class="navbar-brand scroll-link" rel="home" href="/">
+                    <img src="../images/logo.png" alt="refpod" border="0" height="35px" width="150px" title="refpod" />
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="profile.html">Edit profile</a></li>
+                    <li><a href="#">Who's viewed your profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Your activity</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Referrals</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="/users/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+    <!--
+    <div class="jumbotron">
+		<div class="container">
+			<h1>Refpod</h1>
+			<p>Refpod is a new social way of employee referral. Build your network of friends and earn money by referring them in your company. 
+			You can also earn money by just forwarding the jobs</p>
+			<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+		</div>
+    </div>
+ -->
+	<div class="container-fluid" style="margin-top:40px">
+            <div class="col-md-4 col-md-offset-4">
+                <%#hasErrors%>
+                    <div class="alert alert-danger">
+                        <%#errors%>
+                        <ul>
+                            <li>
+                                <%msg%>
+                            </li>
+                        </ul>
+                        <%/errors%>
+                    </div>
+                <%/hasErrors%>
+                <div class="login-panel panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">User sign up for Repfod</h1>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/users/signup" method="post">
+                            <fieldset>
+								<div class="form-group">
+                                    <input class="form-control" placeholder="First name" name="firstName" type="text" value="<%firstName%>" autofocus="autofocus"/>
+                                </div>
+								<div class="form-group">
+                                    <input class="form-control" placeholder="Last name" name="lastName" type="text" value="<%lastName%>" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="email@company.com" name="email" type="email" value="<%email%>" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Confirm Password" name="password2" type="password" value="" />
+                                </div>
+								<div class="form-group">
+									<button class="btn btn-md btn-success" name="submit" type="submit">Sign Up</button>
+									<div><a href="/users/login">Already refpod user? Sign In</a></div>
+								</div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+ 
+	</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+</html>

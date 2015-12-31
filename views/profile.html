@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Refpod - a new way of employee referral</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" HREF="images/favicon1.png">
+        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        <script type="text/javascript">
+        </script>
+        <style>
+            body {
+                padding-top: 70px;
+            }
+            .navbar-brand {
+                font-size: 1.7em;
+                padding-bottom: 5px; 
+            }
+            .navbar-inverse {
+                background-color: #4f4444;
+            }
+            .padding-bottom{
+                padding-bottom: 5px;
+            }
+            .details {
+                padding-bottom: 10px;
+            }
+            .margin {
+                margin-bottom: 11px;
+            }
+            .time {
+                color: #AF9AA5;
+            }
+            h1{
+                margin-top: auto;
+                padding: 0 200px 10px 0;
+                border-bottom: 1px solid #E5E5E5;
+            }
+	    </style>
+	</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <div class="padding-bottom">
+                <a class="navbar-brand" rel="home" href="/">
+                    <img src="../images/logo.png" alt="refpod" border="0" height="35px" width="150px" title="refpod" />
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/profile">Edit profile</a></li>
+                    <li><a href="#">Who's viewed your profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Your activity</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Referrals</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+  
+<!--left-->
+   <div class="col-sm-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation">
+              <a href="#">Basic information</a>
+          </li>
+		  <li role="presentation"><a href="#">Experience</a></li>
+		  <li role="presentation"><a href="#">Resume</a></li>
+          <li role="presentation"><a href="#">Social Network</a></li>
+		</ul>
+  </div>
+<!--/left-->
+  
+  <!--center-->
+  <div id="profile">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-example">
+                <h1>Basic information</h1>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">Email:</label>
+                        <div class="col-xs-9">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputPassword">Password:</label>
+                        <div class="col-xs-9">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="confirmPassword">Confirm Password:</label>
+                        <div class="col-xs-9">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="firstName">First Name:</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="lastName">Last Name:</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="phoneNumber">Phone:</label>
+                        <div class="col-xs-9">
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Date of Birth:</label>
+                        <div class="col-xs-3">
+                            <select class="form-control">
+                                <option>Date</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control">
+                                <option>Month</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control">
+                                <option>Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="postalAddress">Address:</label>
+                        <div class="col-xs-9">
+                            <textarea rows="3" class="form-control" id="postalAddress" placeholder="Postal Address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="ZipCode">Zip Code:</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Gender:</label>
+                        <div class="col-xs-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="genderRadios" value="male"> Male
+                            </label>
+                        </div>
+                        <div class="col-xs-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="genderRadios" value="female"> Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="news"> Send me latest news and updates.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="agree">  I agree to the <a href="#">Terms and Conditions</a>.
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            <input type="reset" class="btn btn-default" value="Reset">
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+  </div>
+  <!--right-->
+  <div class="col-sm-3">
+        <h3>Friends</h3>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+  </div><!--/right-->
+  <hr>
+</div><!--/container-fluid-->
+	<!-- script references -->
+
+	</body>
+</html>

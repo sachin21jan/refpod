@@ -1,0 +1,89 @@
+<div class="container" style="margin-top: 30px">
+    <!--left-->
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="/employers/#/">Home</a></li>
+                <li role="presentation"><a href="/employers/#/postjob">Post Job</a></li>
+                <li role="presentation"><a href="#">Post multiple jobs</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <h2 style="margin-top: 0px">Post a job</h2>
+                <hr style="border-bottom: 1px solid #4F4444; margin-top: 10px;">
+                <form ng-submit="postJob()" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title</label>
+                            <input class="form-control" placeholder="Start typing to get suggestions" id="jobTitle" ng-model="jobTitle" type="text" typeahead="jobTitle for jobTitle in jobTitles | filter:$viewValue | limitTo:8" autofocus="autofocus"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobDescription">Job Description</label>
+                            <textarea class="form-control" rows="5" placeholder="Describe the responsibilities of this job, required work experience, skills, or education" id="jobDescription" ng-model="jobDescription" type="text" value="<%jobDescription%>"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobLocation">Location</label>
+                            <input class="form-control" placeholder="Job Location" id="jobLocation" type="text" ng-model="jobLocation" typeahead="state for state in states | filter:$viewValue | limitTo:8" />
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="experience">Experience</label>
+                                    <select class="form-control" placeholder="Experience" id="experience" ng-model="experience">
+                                        <option>Executive</option>
+                                        <option>Director</option>
+                                        <option>Mid-Senior Level</option>
+                                        <option>Associate</option>
+                                        <option>Entry Level</option>
+                                        <option>Internship</option>
+                                        <option>Not Applicable</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary">Salary</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="sizing-addon">$</span>
+                                        <input type="text" class="form-control" placeholder="Salary" id="salary" ng-model="salary" aria-describedby="sizing-addon2"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <select class="form-control" name="salaryFrequency" ng-model="salaryFrequency">
+                                        <option selected>per year</option>
+                                        <option>per month</option>
+                                        <option>per day</option>
+                                        <option>per hour</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Skill Set</label>
+                            <tags-input ng-model="skillSets" display-property="name" replace-spaces-with-dashes="false" placeHolder="">
+                                <auto-complete source="loadSkillSets($query)"
+                                               min-length="0"
+                                               load-on-focus="false"
+                                               load-on-empty="false"
+                                               max-results-to-show="8">
+                                </auto-complete>
+                            </tags-input>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-md btn-primary" name="submit" type="submit">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div> <!-- row -->
+</div>

@@ -1,0 +1,36 @@
+<div class="container-fluid" style="margin-top:40px">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+            <div class="alert alert-danger alert-dismissible" ng-show="errors">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <span ng-bind-html="errors.message"></span>
+            </div>
+            <div class="login-panel panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Employer sign in for Repfod</h1>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="employerSignIn()" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="email@company.com" ng-model="email" name="email" type="email" required="required" autofocus="autofocus"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="password" ng-model="password" name="password" type="password" value="" required="required" />
+                            </div>
+                            <div class="form-group no-bottom-margin">
+                                <button class="btn btn-md btn-success" name="submit" type="submit">Sign In</button>
+                                <div>
+                                    <a href="#/signup">New to Repod? Sign up</a>
+                                </div>
+                                <div>
+                                    <a href="#/forgotpassword">Forgot password</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

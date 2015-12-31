@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userApp">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" HREF="images/favicon1.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+        <script src="./js/user-app.js"></script>
+        <script src="../js/companyjobs.js"></script>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+        <script type="IN/MemberProfile" data-id="https://www.linkedin.com/pub/sachin-garg/4/2a1/711" data-format="inline"></script>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+<body onload="defaultSettings()">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <div class="padding-bottom">
+                <a class="navbar-brand" rel="home" href="/">
+                    <img src="../images/logo.png" alt="refpod" border="0" height="35px" width="150px" title="refpod" />
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/profile">Edit profile</a></li>
+                    <li><a href="#">Who's viewed your profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/users/logout">Logout</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Referrals</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container" style="margin-top: 30px">
+  
+<!--left-->
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="/users#/">Home</a></li>
+                <li role="presentation"><a href="/users#/companyJobs">Gap jobs</a></li>
+                <li role="presentation"><a href="#">Other jobs</a></li>
+                <li role="presentation"><a href="#">Friends</a></li>
+            </ul>
+        </div>
+<!--/left-->
+  
+        <!--center-->
+        <div class="col-md-6">
+            <div id="companyJobs" ng-controller="userController">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-primary" ng-repeat="companyJob in companyJobs">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="#">{{companyJob.jobTitle}}</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><b>Job description</b> {{companyJob.jobDescription}}</li>
+                                    <li class="list-group-item">
+                                        <b>Skill sets</b>
+                                        <span class="label label-default">Java</span>
+                                        <span class="label label-default">JSP</span>
+                                        <span class="label label-default">Servlets</span>
+                                    </li>
+                                    <li class="list-group-item"><b>Department</b> Connector, Engineering</li>
+                                    <li class="list-group-item"><b>Location</b> {{companyJob.jobLocation}}</li>
+                                </ul>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-primary margin" data-toggle="modal" data-target="#job1Modal">Forward</button>
+                                    <div class="modal fade" id="job1Modal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="close" data-dismiss="modal">x</button>
+                                                    <h4 class="modal-title">Select friends to forward this job</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="thumbnail">
+                                                                <img src="images/sheetal.jpg" alt="...">
+                                                                <div class="caption">
+                                                                    <h4>Sheetal Sharma</h4>
+                                                                    <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="thumbnail">
+                                                                <img src="images/sachin.jpg" alt="...">
+                                                                <div class="caption">
+                                                                    <h4>Sachin Garg</h4>
+                                                                    <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="thumbnail">
+                                                                <img src="images/varun.jpg" alt="...">
+                                                                <div class="caption">
+                                                                    <h4>Varun Singh</h4>
+                                                                    <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button class="btn btn-success">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="well">
+                                <a href="#">Ankit Tiwari</a> applied for this job <span class="time">13 hrs</span> ago
+                                <span class="pull-right">
+                                    <button id="push1" type="button" class="btn btn-success">Push to HR</button>
+                                </span>
+                                <div  id="pushtohrmessage1" class="alert alert-success">
+                                    You pushed <a href="#">Ankit Tiwari</a> profile to HR <span class="time">0 min</span> ago
+                                </div>
+                            </div>
+                            <div class="well">
+                                <a href="#">Mohit Mittal</a> applied for this job <span class="time">29 mins</span> ago
+                                <span class="pull-right">
+                                    <button id="push2" type="button" class="btn btn-success">Push to HR</button>
+                                </span>
+                                <div  id="pushtohrmessage2" class="alert alert-success">
+                                    You pushed <a href="#">Mohit Mittal</a> profile to HR <span class="time">0 min</span> ago
+                                </div>
+                            </div>
+                            -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--center-->
+
+
+
+  <!--
+  <div id="liveFeed">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>Swati Gupta just forwarded <a href="#">Software Engineer</a> job with <a href="#">Healthedge</a>  to Rashmi</h4>
+            <p class="lead"><button class="btn btn-default">Read More</button></p>
+            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+            <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 2 Comments</a></li><li><a href="#">
+                <i class="glyphicon glyphicon-share"></i> 14 Shares</a></li></ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>Swati Gupta just forwarded <a href="#">Software Engineer</a> job with <a href="#">Healthedge</a>  to Rashmi</h4>
+            <p class="lead"><button class="btn btn-default">Read More</button></p>
+            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+            <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 2 Comments</a></li><li><a href="#">
+                <i class="glyphicon glyphicon-share"></i> 14 Shares</a></li></ul>
+          </div>
+        </div>
+        <hr>      
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>Swati Gupta just forwarded <a href="#">Software Engineer</a> job with <a href="#">Healthedge</a>  to Rashmi</h4>
+            <p class="lead"><button class="btn btn-default">Read More</button></p>
+            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+            <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 2 Comments</a></li><li><a href="#">
+                <i class="glyphicon glyphicon-share"></i> 14 Shares</a></li></ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+  </div>
+   -->
+  <!--right-->
+  <!--
+  <div class="col-sm-3">
+        <h3>Friends</h3>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+  </div>
+   --><!--/right-->
+    </div> <!-- row -->
+</div> <!--container -->
+</body>
+</html>

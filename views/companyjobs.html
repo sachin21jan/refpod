@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Refpod - a new way of employee referral</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" HREF="images/favicon1.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="../js/companyjobs.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#push1').click(function(){
+                    $('#pushtohrmessage1').fadeIn();
+                    $('#push1').disabled();
+                });
+                $('#push2').click(function(){
+                    $('#pushtohrmessage2').fadeIn();
+                    
+                });
+            });
+
+        </script>
+        <style>
+            body {
+                padding-top: 70px;
+            }
+            .navbar-brand {
+                font-size: 1.7em;
+                padding-bottom: 5px; 
+            }
+            .navbar-inverse {
+                background-color: #4f4444;
+            }
+            .padding-bottom{
+                padding-bottom: 5px;
+            }
+            .details {
+                padding-bottom: 10px;
+            }
+            .margin {
+                margin-bottom: 11px;
+            }
+            .time {
+                color: #AF9AA5;
+            }
+            .alert {
+                margin-top: 24px;
+            }
+	    </style>
+	</head>
+<body onload="defaultSettings()">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <div class="padding-bottom">
+                <a class="navbar-brand" rel="home" href="/">
+                    <img src="../images/logo.png" alt="refpod" border="0" height="35px" width="150px" title="refpod" />
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/profile">Edit profile</a></li>
+                    <li><a href="#">Who's viewed your profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Your activity</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Referrals</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+  
+<!--left-->
+   <div class="col-sm-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation">
+              <a href="/companyjobs">Healthedge jobs&nbsp;<span class="badge">42</span></a>
+          </li>
+		  <li role="presentation"><a href="/friendsjobs">Friends jobs&nbsp;<span class="badge">5</span></a></li>
+		  <li role="presentation"><a href="#">Other jobs&nbsp;<span class="badge">17</span></a></li>
+		</ul>
+  </div>
+<!--/left-->
+  
+  <!--center-->    
+    <div id="companyJobs">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#">Director of Cloud Production Services</a></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>IT - Operations &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Burlington, MA Only
+                  </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-info margin" data-toggle="modal" data-target="#job1Modal">Forward</button>
+                        <div class="modal fade" id="job1Modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">x</button>
+                                        <h4 class="modal-title">Select friends to forward this job</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/sheetal.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Sheetal Sharma</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/sachin.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Sachin Garg</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/varun.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Varun Singh</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-success">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  <div class="well">
+                      <a href="#">Ankit Tiwari</a> applied for this job <span class="time">13 hrs</span> ago
+    
+                      <span class="pull-right">
+                            <button id="push1" type="button" class="btn btn-success">Push to HR</button>
+                      </span>  
+                      
+                      <div  id="pushtohrmessage1" class="alert alert-success">
+                        You pushed <a href="#">Ankit Tiwari</a> profile to HR <span class="time">0 min</span> ago
+                      </div>
+                  </div>
+                  <div class="well">
+                      <a href="#">Mohit Mittal</a> applied for this job <span class="time">29 mins</span> ago
+                      <span class="pull-right">
+                            <button id="push2" type="button" class="btn btn-success">Push to HR</button>
+                      </span>  
+                      
+                      <div  id="pushtohrmessage2" class="alert alert-success">
+                        You pushed <a href="#">Mohit Mittal</a> profile to HR <span class="time">0 min</span> ago
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#">Senior Software Quality Assurance Engineer, Payor Sustaining</a></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>Payor &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Burlington, MA Only
+                  </div>
+                  <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Forward</button>
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">x</button>
+                                        <h4 class="modal-title">Select friends to forward this job</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/sheetal.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Sheetal Sharma</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/sachin.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Sachin Garg</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                              <img src="images/varun.jpg" alt="...">
+                                              <div class="caption">
+                                                <h4>Varun Singh</h4>
+                                                <p><a href="#" class="btn btn-primary" role="button">Forward</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-success">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#">Principal Developer</a></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>Consulting &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Powell, OH Only
+                  </div>
+                  <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-primary">Forward</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>    
+
+  <!--right-->
+  <div class="col-sm-3">
+        <h3>Friends</h3>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+  </div><!--/right-->
+  <hr>
+</div><!--/container-fluid-->
+	<!-- script references -->
+
+	</body>
+</html>

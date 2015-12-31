@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Refpod - a new way of employee referral</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" HREF="images/favicon1.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        </script>
+        <style>
+            body {
+                padding-top: 70px;
+            }
+            .navbar-brand {
+                font-size: 1.7em;
+                padding-bottom: 5px; 
+            }
+            .navbar-inverse {
+                background-color: #4f4444;
+            }
+            .padding-bottom{
+                padding-bottom: 5px;
+            }
+            .details {
+                padding-bottom: 10px;
+            }
+            .margin {
+                margin-bottom: 11px;
+            }
+            .time {
+                color: #AF9AA5;
+            }
+	    </style>
+	</head>
+<body onload="defaultSettings()">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <div class="padding-bottom">
+                <a class="navbar-brand" rel="home" href="index.html">
+                    <img src="../public/images/logo.png" alt="refpod" border="0" height="35px" width="150px" title="refpod" />
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/profile">Edit profile</a></li>
+                    <li><a href="#">Who's viewed your profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Your activity</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Referrals</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+  
+<!--left-->
+   <div class="col-sm-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation">
+              <a href="companyjobs.html">Healthedge jobs&nbsp;<span class="badge">42</span></a>
+          </li>
+		  <li role="presentation"><a href="friendsjobs.html">Friends jobs&nbsp;<span class="badge">5</span></a></li>
+		  <li role="presentation"><a href="#">Other jobs&nbsp;<span class="badge">17</span></a></li>
+		</ul>
+  </div>
+<!--/left-->
+
+  <div id="friendsJobs">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#"><b>Vishal Saxena</b></a> forwarded <a href="#">Senior Software Engineer</a> with <strong>Cisco Systems</strong></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>Product &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Chicago
+                  </div>
+                    <button type="button" class="btn btn-success">Forward</button>
+                    <button type="button" class="btn btn-success">Apply</button> 
+                  <div class="margin"></div>
+                    <div class="well">
+                      <a href="#">John Smith</a> applied for this job <span class="time">2 days</span> ago
+                      <span class="pull-right">
+                          <button type="button" class="btn btn-success">Push it back</button>
+                      </span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#"><b>Rohit Gupta</b></a> forwarded <a href="#">Java Engineer</a> with <strong>Oracle</strong></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>CCBU &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Boston
+                  </div>
+                  <button type="button" class="btn btn-info">Forward</button>
+                  <button type="button" class="btn btn-info">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a href="#"><b>Amit Jha</b></a> forwarded <a href="#">Senior Scientist</a> with <strong>Adobe</strong></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="details">
+                      <span class="glyphicon glyphicon-star"></span>Consulting &nbsp;&nbsp;<span class="glyphicon glyphicon-star"></span>Powell, OH Only
+                  </div>
+                  <button type="button" class="btn btn-primary">Forward</button>
+                  <button type="button" class="btn btn-primary">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>     
+
+  <!--right-->
+  <div class="col-sm-3">
+        <h3>Friends</h3>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+  </div><!--/right-->
+  <hr>
+</div><!--/container-fluid-->
+	<!-- script references -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+</html>
