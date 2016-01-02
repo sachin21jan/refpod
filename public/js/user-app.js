@@ -21,7 +21,29 @@ refpodApp.config(function($routeProvider){
             templateUrl: 'partials/friends.html',
             controller: 'friendsController'
         })
+        .when('/logout', {
+            templateUrl: 'partials/signin.html',
+            controller: 'logoutController'
+        })
 });
+
+refpodApp.controller('applicationController', ['$scope', '$http', '$location', function($scope, $http, $location){
+    $scope.isAuthenticated = '';
+    $http.get('/users/isLoggedIn')
+        .success(function (result){
+            console.log("Success result returned from /users/isLoggedIn: " + result.message);
+            if(result.message === "User authenticated"){
+                $scope.isAuthenticated = true;
+                $location.path('/users');
+            } else {
+                $scope.isAuthenticated = false;
+            }
+        })
+        .error(function(data, status){
+            console.log("Failure result returned from /users/isLoggedIn: " + data.message);
+            $scope.isAuthenticated = false;
+        });
+}]);
 
 refpodApp.controller('userSignInController', ['$scope', '$http', '$window', '$location', '$sce', function($scope, $http, $window, $location, $sce){
     $scope.userSignIn = function() {
@@ -33,7 +55,6 @@ refpodApp.controller('userSignInController', ['$scope', '$http', '$window', '$lo
         $http.post('/users/signin', JSON.stringify(userData))
             .success(function (data, status, headers, config) {
                 console.log("Success - Data returning from server " + data + ", status: " + status);
-                //$window.location.href = '/users';
                 $location.path('/users');
             })
             .error(function (data, status, headers, config) {
@@ -46,7 +67,7 @@ refpodApp.controller('userSignInController', ['$scope', '$http', '$window', '$lo
     }
 }]);
 
-refpodApp.controller('userSignUpController', ['$scope', '$http', '$window', '$sce', function($scope, $http, $window, $sce){
+refpodApp.controller('userSignUpController', ['$scope', '$http', '$window', '$location', '$sce', function($scope, $http, $window, $location, $sce){
     $scope.userSignUp = function() {
         $scope.errors = {};
         var userData = {
@@ -59,7 +80,20 @@ refpodApp.controller('userSignUpController', ['$scope', '$http', '$window', '$sc
         $http.post('/users/signup', JSON.stringify(userData))
             .success(function (data, status, headers, config) {
                 console.log("Success - Data returning from server " + data + ", status: " + status);
-                $window.location.href = '/users';
+                //$window.location.href = '/users';
+                $http.post('/users/signin', JSON.stringify(userData))
+                    .success(function (data, status, headers, config) {
+                        console.log("Success - Data returning from server " + data + ", status: " + status);
+                        //$window.location.href = '/users';
+                        $location.path('/users');
+                    })
+                    .error(function (data, status, headers, config) {
+                        $scope.errors.hasErrors = data.hasErrors;
+                        $scope.errors.message = $sce.trustAsHtml(data.message);
+                        console.log("Failure - Data returning from server " + data.hasErrors + "," + data.message);
+                        console.log("Failure - $scope.errors.message " + $scope.errors.message);
+                        $scope.password = "";
+                    });
             })
             .error(function (data, status, headers, config) {
                 console.log("Failure - Data returning from server " + data.hasErrors + "," + data.errors);
@@ -79,10 +113,17 @@ refpodApp.controller('userHomeController', ['$scope', '$http', '$location', func
     $scope.companyJobs = '';
     $http.get('/users/getCompanyJobs')
         .success(function (result){
-            $scope.companyJobs = result;
-            for(var i = 0 ; i < result.length; i++){
-                var jobPost = result[i];
-                console.log(jobPost);
+            console.log("Result returned from /users/getCompanyJobs: " + result);
+            console.log("typeof result: " + typeof result);
+            if(typeof result === "string"){
+                $scope.hasMessage = true;
+                $scope.message = result;
+            } else {
+                $scope.companyJobs = result;
+                for (var i = 0; i < result.length; i++) {
+                    var jobPost = result[i];
+                    console.log(jobPost);
+                }
             }
         })
         .error(function(data, status){
@@ -104,5 +145,16 @@ refpodApp.controller('friendsController', ['$scope', '$http', '$location', funct
         .error(function(data, status){
             console.log(data);
             $location.path('/');
+        });
+}]);
+
+refpodApp.controller('logoutController', ['$scope', '$http', function($scope, $http){
+    $scope.isAuthenticated = '';
+    $http.get('/users/logout')
+        .success(function (result){
+            console.log("Success result returned from /users/logout: " + result);
+        })
+        .error(function(data, status){
+            console.log("Failure result returned from /users/isLoggedIn: " + data);
         });
 }]);

@@ -40,12 +40,16 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         secure: false,
-        maxAge: new Date(Date.now() + 3600000)
+        maxAge: new Date(Date.now() + 10 * 365 * 24 * 60 * 60) //setting it to 10 years ahead in time
     }
 }));
         
 //Passport
 app.use(flash());
+app.use(function (req, res, next) {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+});
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var config = require('../config/auth');
+var messages = require('../config/properties');
 var User = require('../models/user');
 var JobPost = require('../models/employer');
 var Company = require('../models/company');
@@ -20,12 +21,22 @@ router.get('/', ensureUserAuthenticated, function(req, res, next) {
 
 function ensureUserAuthenticated(req, res, next){
     if(req.isAuthenticated()){
-        console.log('User is autheticated for ' + req.user.email);
+        console.log('User is authenticated for ' + req.user.email);
         return next();
     }
-    console.log('User is not autheticated');
+    console.log('User is not authenticated');
     return res.json(401, {message: "User not authenticated"});
 }
+
+router.get('/isLoggedIn', function(req, res, next) {
+    console.log('users: /isLoggedIn');
+    if(req.isAuthenticated()){
+        console.log('isLoggedIn ' + true);
+        return res.json(200, {message: "User authenticated"});
+    }
+    console.log('isLoggedIn ' + false);
+    return res.json(401, {message: "User not authenticated"});
+});
 
 router.get('/signin', function(req, res, next) {
     console.log('users: /signin get');
@@ -33,6 +44,7 @@ router.get('/signin', function(req, res, next) {
 });
 
 router.post('/signin', function(req, res, next) {
+    console.log('users: /signin get');
     passport.authenticate('local-user', function(err, user, info) {
         var error = err || info;
         if (error) {
@@ -82,9 +94,13 @@ router.get('/getCompanyjobs', ensureUserAuthenticated, function(req, res, next){
     var domain = userEmail.substring(atIndex + 1, dotIndex);
     Company.findCompanyByDomain(domain, function(err, company){
         console.log("company: " + company);
-        JobPost.getJobsByCompany(company._id, function(err, jobPosts){
-           res.json(jobPosts);
-        });
+        if(company) {
+            JobPost.getJobsByCompany(company._id, function (err, jobPosts) {
+                res.json(jobPosts);
+            });
+        } else {
+            res.json(200, messages.user.profile.companynotfound);
+        }
     });
     //res.render('companyjobs');
 });
@@ -275,7 +291,8 @@ router.get('/logout', function(req, res){
     console.log('users: /logout get');
     req.logout();
     req.flash('success', 'You have logged out');
-    res.redirect('/users/signin');
+    //res.redirect('/users/signin');
+    res.json(200);
 });
 
 router.get('/signup', function(req, res, next) {
@@ -306,7 +323,7 @@ router.post('/signup', function(req, res, next) {
     
     //Check for errors
     var errors = req.validationErrors();
-    console.log(errors);
+    console.log("Errors: " + errors);
     if(errors){
         //res.render('signup', {
         //    hasErrors: true,
@@ -339,8 +356,9 @@ router.post('/signup', function(req, res, next) {
         });
         
         req.flash('success', 'You have successfully signed up');
-        res.location('/users');
-        res.redirect('/users');
+        //res.location('/users/');
+        //res.redirect('/users/');
+        res.json(200, "success");
     }
     
 });

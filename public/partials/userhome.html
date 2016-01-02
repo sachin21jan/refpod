@@ -4,17 +4,19 @@
     <div class="row">
         <div class="col-md-2">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation"><a href="/users#/">Home</a></li>
-                <li role="presentation"><a href="/users#/companyJobs">Gap jobs</a></li>
-                <li role="presentation"><a href="#">Other jobs</a></li>
-                <li role="presentation"><a href="#friends">Friends</a></li>
+                <li class="active" role="presentation"><a href="/#/users">Company jobs</a></li>
+                <li role="presentation"><a href="/#/friendJobs">Friend jobs</a></li>
+                <li role="presentation"><a href="/#/friends">Friends</a></li>
             </ul>
         </div>
 <!--/left-->
   
         <!--center-->
         <div class="col-md-6">
-            <div id="companyJobs">
+                <div class="alert alert-info alert-dismissible" ng-show="hasMessage">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <span>{{message}}</span>
+                </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel panel-primary" ng-repeat="companyJob in companyJobs">
@@ -85,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+        </div> <!-- center -->
     </div> <!-- row -->
 </div>
